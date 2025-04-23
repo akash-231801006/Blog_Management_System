@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vibrant Blog Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f9ff, #dff6f0);
+      color: #1f2937;
+      padding: 30px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 32px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #0f172a;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      background-color: #f1f5f9;
+    }
+
+    .button {
+      padding: 12px;
+      width: 100%;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    }
+
+    .dashboard-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .total-posts {
+      background: linear-gradient(to right, #a5f3fc, #38bdf8);
+      color: #0c4a6e;
+    }
+
+    .drafts {
+      background: linear-gradient(to right, #fef08a, #facc15);
+      color: #78350f;
+    }
+
+    .comments {
+      background: linear-gradient(to right, #bbf7d0, #34d399);
+      color: #065f46;
+    }
+
+    .dashboard-icon {
+      font-size: 24px;
+    }
+
+    .rating {
+      display: flex;
+      gap: 6px;
+      font-size: 20px;
+    }
+
+    .star {
+      color: gold;
+    }
+
+    .main-content h1 {
+      font-size: 30px;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .blog-card {
+      display: flex;
+      margin-bottom: 24px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .blog-img {
+      width: 180px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 16px;
+    }
+
+    .blog-content h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+
+    .blog-content p {
+      font-size: 14px;
+      color: #475569;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-card {
+        flex-direction: column;
+      }
+
+      .blog-img {
+        width: 100%;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Add Blog Post -->
+      <div class="card">
+        <h3>➕ Add New Blog</h3>
+        <input type="text" class="input" placeholder="Enter blog title" />
+        <input type="text" class="input" placeholder="Enter content..." />
+        <button class="button">Publish</button>
+      </div>
+
+      <!-- Dashboard -->
+      <div class="card">
+        <h3>📊 Dashboard</h3>
+        <div class="dashboard-item total-posts">
+          <span class="dashboard-icon">📝</span>
+          Total Posts: 24
+        </div>
+        <div class="dashboard-item drafts">
+          <span class="dashboard-icon">📄</span>
+          Drafts: 5
+        </div>
+        <div class="dashboard-item comments">
+          <span class="dashboard-icon">💬</span>
+          Comments: 102
+        </div>
+      </div>
+
+      <!-- Rating System -->
+      <div class="card">
+        <h3>⭐ Rate Us</h3>
+        <div class="rating">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">☆</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>📰 Recent Blog Posts</h1>
+
+      <!-- Existing blog posts -->
+      <div class="blog-card">
+        <img class="blog-img" src="https://www.krishnakantyadav.com/blog/wp-content/uploads/2022/03/ReactJS-Everything-You-Should-Know-About-It.png" alt="React" />
+        <div class="blog-content">
+          <h2>React Basics for Beginners</h2>
+          <p>A gentle dive into the world of React components, JSX, and reusable UI pieces.</p>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img class="blog-img" src="https://www.mygreatlearning.com/blog/wp-content/uploads/2020/07/Blog-Info-graphics-1000X700-02.jpg" alt="CSS" />
+        <div class="blog-content">
+          <h2>CSS Grids & Flexbox Magic</h2>
+          <p>Unlock the power of layouts with a combination of Flexbox and Grid for responsiveness.</p>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img class="blog-img" src="https://www.goodfreephotos.com/albums/other-photos/hand-writing-paper-with-pen.jpg" alt="Writing" />
+        <div class="blog-content">
+          <h2>How to Write Blogs That Click</h2>
+          <p>Boost your blog performance with catchy titles, engaging stories, and SEO secrets.</p>
+        </div>
+      </div>
+
+      <!-- New Blog Posts -->
+      <div class="blog-card">
+        <img class="blog-img" src="https://www.freepnglogos.com/uploads/javascript-png/javascript-nodejs-logo-27.png" alt="JavaScript" />
+        <div class="blog-content">
+          <h2>Introduction to JavaScript Logic</h2>
+          <p>Understand the building blocks of JavaScript and how to implement conditional logic.</p>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img class="blog-img" src="https://s3-alpha.figma.com/hub/file/2942566861/7e3aaade-4be8-47a8-aa6c-fe6f0c220316-cover.png" alt="Web Design" />
+        <div class="blog-content">
+          <h2>Web Design: Creating Stunning User Interfaces</h2>
+          <p>Master the art of designing intuitive and visually appealing websites with modern tools.</p>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img class="blog-img" src="https://static.vecteezy.com/system/resources/previews/021/496/368/original/ios-icon-logo-software-phone-apple-symbol-with-name-black-design-mobile-illustration-free-vector.jpg" alt="iOS Development" />
+        <div class="blog-content">
+          <h2>Beginner’s Guide to iOS Development</h2>
+          <p>Learn how to start building apps for Apple devices using Swift and Xcode.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
